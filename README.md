@@ -14,7 +14,7 @@ sudo apt install trash-cli
 ## Limitations
 
 Restoring deleted files from VSCode is not possible.
-You can restore them by manually using `trash-restore` command.
+You can restore them by manually using `trash-restore` command from terminal.
 
 ## Release Notes
 
