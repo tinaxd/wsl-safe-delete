@@ -17,8 +17,8 @@
 	"contributes": {
 		"commands": [
 			{
-				"command": "wsl-safe-delete.helloWorld",
-				"title": "Hello World"
+				"command": "wsl-safe-delete.restoreLast",
+				"title": "Restore the last deleted file/directory"
 			},
 			{
 				"command": "wsl-safe-delete.moveToTrash",

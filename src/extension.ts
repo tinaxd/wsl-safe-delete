@@ -33,12 +33,27 @@ export function activate(context: vscode.ExtensionContext) {
 				const trash = spawn('trash-put', [path]);
 				trash.on('close', (code) => {
 					console.log(`trash-put exited with code ${code}`);
+					context.workspaceState.update('lastDeleted', path);
 				});
 			}
 		});
 	});
 
-	context.subscriptions.push(moveToTrash);
+	// TODO: not implemented yet
+	const restoreLast = vscode.commands.registerCommand('wsl-safe-delete.restoreLast', (args) => {
+		if (true) {
+			vscode.window.showInformationMessage('This feature is not implemented yet.');
+		} else {
+		const lastPath = context.workspaceState.get('lastDeleted');
+		if (lastPath === undefined) {
+			vscode.window.showInformationMessage('No files in trash.');
+			return;
+		}
+		console.log(`last deleted file is ${lastPath}`);
+		}
+	});
+
+	context.subscriptions.push(moveToTrash, restoreLast);
 }
 
 // this method is called when your extension is deactivated
